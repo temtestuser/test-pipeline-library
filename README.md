@@ -1,1 +1,1 @@
-# test-pipeline-library
+# Jenkins Pipeline Library
