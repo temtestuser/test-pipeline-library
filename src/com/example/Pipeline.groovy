@@ -19,9 +19,11 @@ class Pipeline {
 //    ===================== Run pipeline stages =======================
 
 //    ===================== End pipeline ==============================
+        script.node(){
         Map pipelineCfg = script.readFile(file: "configurationFile")
         script.stage('test'){
         script.echo "hi"
+        }
         }
     }
 }
