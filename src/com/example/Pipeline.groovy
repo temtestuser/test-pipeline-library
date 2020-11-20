@@ -22,8 +22,7 @@ class Pipeline {
         script.node() {
             
             script.stage('Test'){
-            datas = readYaml file: 'configurationFile'
-            echo "Got version as ${datas.build} "
+            echo "Got version as Hi "
             }
         }
        
