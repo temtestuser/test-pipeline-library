@@ -19,7 +19,7 @@ class Pipeline {
 //    ===================== Run pipeline stages =======================
 
 //    ===================== End pipeline ==============================
-        node{
+        script.stage('Hi'){
         echo "hello"
         }
     }
