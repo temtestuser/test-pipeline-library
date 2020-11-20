@@ -19,6 +19,7 @@ class Pipeline {
 //    ===================== Run pipeline stages =======================
 
 //    ===================== End pipeline ==============================
-        println("Hello")
+        utils = load 'configurationFile'
+        println "${utils}"
     }
 }
