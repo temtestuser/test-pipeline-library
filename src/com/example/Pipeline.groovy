@@ -24,6 +24,7 @@ class Pipeline {
             script.git 'https://github.com/temtestuser/test-maven-project.git'
            }
             def content = script.readFile("${configurationFile}")
+            scipt.cat "$content"
         script.stage('test'){
         script.echo "hi"
         }
