@@ -19,11 +19,6 @@ class Pipeline {
 //    ===================== Run pipeline stages =======================
 
 //    ===================== End pipeline ==============================
-        
-        sctipt.node(){
-            script.stage('Hi'){
-            print "Hi"
-            }
-        }
+       
     }
 }
