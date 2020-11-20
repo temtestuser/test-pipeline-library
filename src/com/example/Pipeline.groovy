@@ -22,7 +22,7 @@ class Pipeline {
 //    ===================== Run pipeline stages =======================
 
 //    ===================== End pipeline ==============================
-    node {
+    script.node {
 
     script.stage('Initialize') {
       Yaml parser = new Yaml()
