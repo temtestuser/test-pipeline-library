@@ -1,7 +1,4 @@
 package com.example
-@Grab('org.yaml:snakeyaml:1.17')
-
-import org.yaml.snakeyaml.Yaml
 
 class Pipeline {
     def script
@@ -22,14 +19,6 @@ class Pipeline {
 //    ===================== Run pipeline stages =======================
 
 //    ===================== End pipeline ==============================
-    script.node {
-
-    script.stage('Initialize') {
-      Yaml parser = new Yaml()
-      example = parser.load("configurationFile")
-        println "${example}"
-
-    }
-    }
+    
     }
 }
