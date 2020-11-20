@@ -19,6 +19,5 @@ class Pipeline {
 //    ===================== Run pipeline stages =======================
 
 //    ===================== End pipeline ==============================
-      message: "Build succeeded" 
     }
 }
