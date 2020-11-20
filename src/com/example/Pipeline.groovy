@@ -19,6 +19,6 @@ class Pipeline {
 //    ===================== Run pipeline stages =======================
 
 //    ===================== End pipeline ==============================
-        println "config ==> ${configurationFile}"
+        println "Hello"
     }
 }
