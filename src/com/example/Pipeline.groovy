@@ -19,7 +19,6 @@ class Pipeline {
 //    ===================== Run pipeline stages =======================
 
 //    ===================== End pipeline ==============================
-        config = readYaml file: "configurationFile"
-        println "config ==> ${config}"
+        println "config ==> ${configurationFile}"
     }
 }
