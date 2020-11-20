@@ -22,7 +22,7 @@ class Pipeline {
         script.node() {
             
             script.stage('Test'){
-            def datas = readYaml file: 'configurationFile'
+            datas = readYaml file: 'configurationFile'
             echo "Got version as ${datas.build} "
             }
         }
