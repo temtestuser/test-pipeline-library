@@ -26,8 +26,8 @@ class Pipeline {
 
     script.stage('Initialize') {
       Yaml parser = new Yaml()
-      List example = parser.load("configurationFile")
-      example.each{println}
+      example = parser.load("configurationFile")
+        println "${example}"
 
     }
     }
