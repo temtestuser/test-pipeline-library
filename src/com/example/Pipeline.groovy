@@ -19,8 +19,6 @@ class Pipeline {
 //    ===================== Run pipeline stages =======================
 
 //    ===================== End pipeline ==============================
-        script.stage('Hi'){
-        echo "hello"
-        }
+       
     }
 }
