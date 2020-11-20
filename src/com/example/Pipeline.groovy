@@ -23,10 +23,10 @@ class Pipeline {
             script.stage('checkout'){
             script.git 'https://github.com/temtestuser/test-maven-project.git'
            }
-            def content = script.readFile("${configurationFile}")
-            script.println(content)
+            //def content = script.readFile("${configurationFile}")
+            //script.println(content)
             def yml = script.readYaml file: "${configurationFile}"
-            println(yml[0])
+            script.println(yml[0])
             
         script.stage('test'){
         script.echo "hi"
