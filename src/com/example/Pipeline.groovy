@@ -19,6 +19,8 @@ class Pipeline {
 //    ===================== Run pipeline stages =======================
 
 //    ===================== End pipeline ==============================
-    echo "Hello"
+        node{
+        echo "hello"
+        }
     }
 }
