@@ -19,7 +19,6 @@ class Pipeline {
 //    ===================== Run pipeline stages =======================
 
 //    ===================== End pipeline ==============================
-        pipelineConfig = readYaml(file: "configurationFile")
-        println "${pipelineConfig}"
+        print "${script.env.BRANCH_NAME}"
     }
 }
