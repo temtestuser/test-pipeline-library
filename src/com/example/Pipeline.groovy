@@ -19,6 +19,9 @@ class Pipeline {
 //    ===================== Run pipeline stages =======================
 
 //    ===================== End pipeline ==============================
-    
+    println("Hi")
+        
     }
 }
+
+return this
