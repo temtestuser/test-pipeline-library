@@ -19,6 +19,13 @@ class Pipeline {
 //    ===================== Run pipeline stages =======================
 
 //    ===================== End pipeline ==============================
-       
+    node {
+
+    script.stage('Initialize') {
+      echo 'Loading pipeline definition'
+      Yaml parser = new Yaml()
+      Map pipelineDefinition = parser.load('configurationFile')
+    }
+    }
     }
 }
