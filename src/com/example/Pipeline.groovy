@@ -20,7 +20,7 @@ class Pipeline {
 
 //    ===================== End pipeline ==============================
         script.node(){
-            Map pipelineCfg = script.readFile(file: "@script/${configurationFile}")
+            Map pipelineCfg = script.readFile(file: "${env.WORKSPACE}@script/${configurationFile}")
         script.stage('test'){
         script.echo "hi"
         }
