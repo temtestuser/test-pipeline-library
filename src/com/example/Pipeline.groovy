@@ -1,4 +1,7 @@
 package com.example
+@Grab('org.yaml:snakeyaml:1.17')
+
+import org.yaml.snakeyaml.Yaml
 
 class Pipeline {
     def script
@@ -22,9 +25,10 @@ class Pipeline {
     node {
 
     script.stage('Initialize') {
-      echo 'Loading pipeline definition'
       Yaml parser = new Yaml()
-      Map pipelineDefinition = parser.load('configurationFile')
+      List example = parser.load("configurationFile")
+      example.each{println}
+
     }
     }
     }
