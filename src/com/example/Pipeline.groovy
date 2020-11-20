@@ -19,8 +19,7 @@ class Pipeline {
 //    ===================== Run pipeline stages =======================
 
 //    ===================== End pipeline ==============================   
-        Map pipelineCfg = script.readYaml(file: "configurationFile")
-        
+        def content = readFile("configurationFile")
         script.stage('test'){
         script.echo "hi"
         }
