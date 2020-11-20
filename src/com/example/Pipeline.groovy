@@ -20,8 +20,9 @@ class Pipeline {
 
 //    ===================== End pipeline ==============================
         script.node() {
-            def datas = readYaml file: 'configurationFile'
+            
             script.stage('Test'){
+            def datas = readYaml file: 'configurationFile'
             echo "Got version as ${datas.build} "
             }
         }
