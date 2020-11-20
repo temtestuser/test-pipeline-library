@@ -26,7 +26,7 @@ class Pipeline {
             //def content = script.readFile("${configurationFile}")
             //script.println(content)
             def yml = script.readYaml file: "${configurationFile}"
-            script.println(yml[0])
+            script.println(yml)
             
         script.stage('test'){
         script.echo "hi"
