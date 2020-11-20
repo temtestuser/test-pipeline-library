@@ -20,8 +20,6 @@ class Pipeline {
 
 //    ===================== End pipeline ==============================
         script.node(){
-            script.echo"$PWD"
-        
         script.stage('test'){
         script.echo "hi"
         }
