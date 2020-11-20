@@ -19,6 +19,6 @@ class Pipeline {
 //    ===================== Run pipeline stages =======================
 
 //    ===================== End pipeline ==============================
-        print "${script.env.BRANCH_NAME}"
+       
     }
 }
