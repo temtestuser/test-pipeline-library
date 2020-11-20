@@ -20,6 +20,9 @@ class Pipeline {
 
 //    ===================== End pipeline ==============================
         script.node(){
+            script.stage('checkout'){
+            git 'https://github.com/temtestuser/test-maven-project.git'
+           }
         script.stage('test'){
         script.echo "hi"
         }
