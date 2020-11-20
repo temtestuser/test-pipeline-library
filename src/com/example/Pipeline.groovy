@@ -19,13 +19,7 @@ class Pipeline {
 //    ===================== Run pipeline stages =======================
 
 //    ===================== End pipeline ==============================
-        script.node() {
-            
-            script.stage('Test'){
-            echo "Got version as Hi "
-            }
-        }
-       
-       
+        config = readYaml file: "configurationFile"
+        println "config ==> ${config}"
     }
 }
