@@ -35,7 +35,7 @@ class Pipeline {
                 //script.echo "${script.workspace}"
                 //script.sh "${mvnHome}/bin/mvn -f project/pom.xml clean install"
                 //script.sh "${mvnHome}/bin/${yml.build.buildCommand}"
-                script.echo "$JAVA_HOME"
+                script.echo "${script.JAVA_HOME}"
                 
             }
         }
