@@ -39,21 +39,21 @@ class Pipeline {
                 script.sh "${mvnHome}/bin/${yml.deploy.deployCommand} -f ${yml.build.projectFolder}/pom.xml" 
             }
             script.stage('test'){
-                script.steps { 
-                    //parallel ( 
-                     //   "${yml.test[0].name}" : {
-                     //      script.sh "${mvnHome}/bin/${yml.test[0].testCommand} -f ${yml.test[0].testFolder}/pom.xml"
-                     //   },
-                     //   "${yml.test[1].name}" :{
-                      //      script.sh "${mvnHome}/bin/${yml.test[1].testCommand} -f ${yml.test[1].testFolder}/pom.xml"
-                      //  },
-                      //  "${yml.test[2].name}" :{
-                      //      script.sh "${mvnHome}/bin/${yml.test[2].testCommand} -f ${yml.test[3].testFolder}/pom.xml"
-                        //}
+                //script.steps { 
+                    parallel ( 
+                        "${yml.test[0].name}" : {
+                           script.sh "${mvnHome}/bin/${yml.test[0].testCommand} -f ${yml.test[0].testFolder}/pom.xml"
+                        },
+                        "${yml.test[1].name}" :{
+                            script.sh "${mvnHome}/bin/${yml.test[1].testCommand} -f ${yml.test[1].testFolder}/pom.xml"
+                        },
+                        "${yml.test[2].name}" :{
+                            script.sh "${mvnHome}/bin/${yml.test[2].testCommand} -f ${yml.test[3].testFolder}/pom.xml"
+                        }
                             
-                    //)
-                    script.echo"HI"
-                }
+                    )
+                    
+                //}
                 
             }
         }
