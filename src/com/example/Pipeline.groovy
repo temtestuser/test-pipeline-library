@@ -35,6 +35,9 @@ class Pipeline {
             script.stage('database'){
                 script.sh "${mvnHome}/bin/${yml.database.databaseCommand} -f ${yml.database.databaseFolder}/pom.xml"  
             }
+            script.stage('deploy'){
+                script.sh "${mvnHome}/bin/${yml.deploy.deployCommand}"  
+            }
         }
     }
 }
