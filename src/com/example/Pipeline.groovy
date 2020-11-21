@@ -3,13 +3,14 @@ package com.example
 class Pipeline {
     def script
     def configurationFile
-    def FAILED_STAGE
     Pipeline(script, configurationFile) {
         this.script = script
         this.configurationFile = configurationFile
     }
 
     def execute() {
+        def FAILED_STAGE
+        def yml
 //    ===================== Your Code Starts Here =====================
 //    Note : use "script" to access objects from jenkins pipeline run (WorkflowScript passed from Jenkinsfile)
 //           for example: script.node(), script.stage() etc
@@ -27,7 +28,7 @@ class Pipeline {
            }
             //def content = script.readFile("${configurationFile}")
             //script.println(content)
-            def yml = script.readYaml file: "${configurationFile}"
+            yml = script.readYaml file: "${configurationFile}"
             script.println(yml.build.projectFolder)
             
             script.stage('build'){
