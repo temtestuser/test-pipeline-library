@@ -20,6 +20,7 @@ class Pipeline {
 
 //    ===================== End pipeline ==============================
         script.node(){
+            def mvnHome = tool 'Maven'
             script.stage('checkout'){
             script.git 'https://github.com/temtestuser/test-maven-project.git'
            }
@@ -28,8 +29,10 @@ class Pipeline {
             def yml = script.readYaml file: "${configurationFile}"
             script.println(yml.build.projectFolder)
             
-        script.stage('test'){
-        script.echo "hi"
+            script.stage('build'){
+                script.echo"${mvnHome}"
+                
+            }
         }
         }
     }
