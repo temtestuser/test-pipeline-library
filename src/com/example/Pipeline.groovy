@@ -20,7 +20,8 @@ class Pipeline {
 
 //    ===================== End pipeline ==============================
         script.node(){
-            try{    
+            try{  
+            def FAILED_STAGE
             def mvnHome = script.tool name: 'maven_3', type: 'maven'
             script.stage('checkout'){
             script.git 'https://github.com/temtestuser/test-maven-project.git'
@@ -31,14 +32,16 @@ class Pipeline {
             script.println(yml.build.projectFolder)
             
             script.stage('build'){
+                FAILED_STAGE = "${script.STAGE_NAME}"
                 script.sh "${mvnHome}/bin/${yml.build.buildCommand} -f ${yml.build.projectFolder}/pom.xml"
              }
             script.stage('database'){
+                FAILED_STAGE = "${script.STAGE_NAME}"
                 script.sh "${mvnHome}/bin/${yml.database.databaseCommand} -f ${yml.database.databaseFolder}/pom.xml"  
             }
             script.stage('deploy'){
+                FAILED_STAGE = "${script.STAGE_NAME}"
                 script.sh "${mvnHome}/bin/${yml.deploy.deployCommand} -f ${yml.build.projectFolder}/pom.xml"
-                script.echo "${script.STAGE_NAME}"
             }
             script.stage('test'){
                 
@@ -58,7 +61,7 @@ class Pipeline {
                 }
             }
             catch (err){
-                //script.echo "${script.STAGE_NAME}"
+                script.echo "${script.FAILED_STAGE}"
                 script.emailext body: "${err}", subject: 'Build failed', to: 'temtest.user@gmail.com'
             }
         }
