@@ -55,7 +55,7 @@ class Pipeline {
                 }
             script.post {
                 failure {
-                    "Failed stage name: ${script.FAILED_STAGE}"
+                    script.echo "Failed stage name: ${script.FAILED_STAGE}"
                 }
             }
         }
