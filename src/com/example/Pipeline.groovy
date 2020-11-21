@@ -39,7 +39,7 @@ class Pipeline {
                 script.sh "${mvnHome}/bin/${yml.deploy.deployCommand} -f ${yml.build.projectFolder}/pom.xml" 
             }
             script.stage('test'){
-                steps { 
+                script.steps() { 
                     parallel ( 
                         "${yml.test[0].name}" : {
                            script.sh "${mvnHome}/bin/${yml.test[0].testCommand} -f ${yml.test[0].testFolder}/pom.xml"
