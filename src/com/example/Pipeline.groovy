@@ -44,13 +44,10 @@ class Pipeline {
                      //   "${yml.test[0].name}" : {
                       //      script.sh "${mvnHome}/bin/${yml.test[0].testCommand} -f ${yml.test.testFolder}/pom.xml"
                       //  },
-                      //   ""       )
+                //   ""       )}
                 script.echo "${yml.test[0].name}"
                 script.echo "${yml.test[1].name}"
                 
-            }
-                
-            
             }
         }
     }
