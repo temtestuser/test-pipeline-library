@@ -1,9 +1,9 @@
 package com.example
-def FAILED_STAGE
+
 class Pipeline {
     def script
     def configurationFile
-
+    def FAILED_STAGE
     Pipeline(script, configurationFile) {
         this.script = script
         this.configurationFile = configurationFile
