@@ -20,7 +20,7 @@ class Pipeline {
 
 //    ===================== End pipeline ==============================
         script.node(){
-            def mvnHome = script.tool 'Maven'
+            def mvnHome = script.tool name: 'maven_3', type: 'maven'
             script.stage('checkout'){
             script.git 'https://github.com/temtestuser/test-maven-project.git'
            }
