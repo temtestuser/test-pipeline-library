@@ -49,9 +49,9 @@ class Pipeline {
                         "${yml.test[0].name}" : {
                            script.sh "${mvnHome}/bin/${yml.test[0].testCommand} -f ${yml.test[0].testFolder}/pom.xml"
                         },
-                        "${yml.test[1].name}" :{
-                            script.sh "${mvnHome}/bin/${yml.test[1].testCommand} -f ${yml.test[1].testFolder}/pom.xml"
-                        },
+                       // "${yml.test[1].name}" :{
+                       //     script.sh "${mvnHome}/bin/${yml.test[1].testCommand} -f ${yml.test[1].testFolder}/pom.xml"
+                       // },
                         "${yml.test[2].name}" :{
                             script.sh "${mvnHome}/bin/${yml.test[2].testCommand} -f ${yml.test[2].testFolder}/pom.xml"
                        }
@@ -59,10 +59,10 @@ class Pipeline {
                    )
                 
                 }
+                script.emailext body: "Successful", subject: "Build failed at stage ${FAILED_STAGE}", to: "${yml.notifications.email.recipients}" 
             }
             catch (err){
-                script.echo "${yml.notifications.email.recipients}"
-                script.emailext body: "${err}", subject: "Build failed at stage ${FAILED_STAGE}", to: 'temtest.user@gmail.com'
+                script.emailext body: "${err}", subject: "Build failed at stage ${FAILED_STAGE}", to: "${yml.notifications.email.recipients}"
             }
         }
     }
