@@ -61,7 +61,7 @@ class Pipeline {
             }
             catch (err){
                 script.echo "${FAILED_STAGE}"
-                script.emailext body: "${err}", subject: 'Build failed', to: 'temtest.user@gmail.com'
+                script.emailext body: "${err}", subject: "Build failed at stage ${FAILED_STAGE}", to: 'temtest.user@gmail.com'
             }
         }
     }
