@@ -36,7 +36,21 @@ class Pipeline {
                 script.sh "${mvnHome}/bin/${yml.database.databaseCommand} -f ${yml.database.databaseFolder}/pom.xml"  
             }
             script.stage('deploy'){
-                script.sh "${mvnHome}/bin/${yml.deploy.deployCommand}"  
+                script.sh "${mvnHome}/bin/${yml.deploy.deployCommand} -f ${yml.build.projectFolder}/pom.xml" 
+            }
+            script.stage('test'){
+                //steps { 
+                    //parallel ( 
+                     //   "${yml.test[0].name}" : {
+                      //      script.sh "${mvnHome}/bin/${yml.test[0].testCommand} -f ${yml.test.testFolder}/pom.xml"
+                      //  },
+                      //   ""       )
+                script.echo "${yml.test[0].name}"
+                script.echo "${yml.test[1].name}"
+                
+            }
+                
+            
             }
         }
     }
