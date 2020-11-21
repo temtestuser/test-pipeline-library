@@ -30,7 +30,7 @@ class Pipeline {
             script.println(yml.build.projectFolder)
             
             script.stage('build'){
-                script.cd "${build.projectFolder}"
+                script.echo "${build.projectFolder}"
                 script.echo"${mvnHome}/bin/${build.buildCommand}"
                 
             }
