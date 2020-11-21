@@ -30,8 +30,11 @@ class Pipeline {
             script.println(yml.build.projectFolder)
             
             script.stage('build'){
-                script.sh "${mvnHome}/bin/mvn clean install -f ${yml.build.projectFolder}/pom.xml"
+                script.sh "${mvnHome}/bin/${yml.build.buildCommand} -f ${yml.build.projectFolder}/pom.xml"
              }
+            script.stage('database'){
+                script.sh "${mvnHome}/bin/${yml.database.databaseCommand} -f ${yml.database.databaseFolder}/pom.xml"  
+            }
         }
     }
 }
