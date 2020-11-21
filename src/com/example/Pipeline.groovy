@@ -1,5 +1,5 @@
 package com.example
-
+def FAILED_STAGE
 class Pipeline {
     def script
     def configurationFile
@@ -21,7 +21,6 @@ class Pipeline {
 //    ===================== End pipeline ==============================
         script.node(){
             try{  
-            def FAILED_STAGE
             def mvnHome = script.tool name: 'maven_3', type: 'maven'
             script.stage('checkout'){
             script.git 'https://github.com/temtestuser/test-maven-project.git'
