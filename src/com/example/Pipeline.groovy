@@ -48,7 +48,7 @@ class Pipeline {
                             script.sh "${mvnHome}/bin/${yml.test[1].testCommand} -f ${yml.test[1].testFolder}/pom.xml"
                         },
                         "${yml.test[2].name}" :{
-                            script.sh "${mvnHome}/bin/${yml.test[2].testCommand} -f ${yml.test[3].testFolder}/pom.xml"
+                            script.sh "${mvnHome}/bin/${yml.test[2].testCommand} -f ${yml.test[2].testFolder}/pom.xml"
                         }
                             
                     )
