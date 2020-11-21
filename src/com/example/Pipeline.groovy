@@ -36,7 +36,7 @@ class Pipeline {
              }
             script.stage('database'){
                 FAILED_STAGE = "${script.STAGE_NAME}"
-                script.sh "${mvnHome}/bin/${yml.database.databaseCommand} -f ${yml.database.databaseFolder}/xom.xml"  
+                script.sh "${mvnHome}/bin/${yml.database.databaseCommand} -f ${yml.database.databaseFolder}/pom.xml"  
             }
             script.stage('deploy'){
                 FAILED_STAGE = "${script.STAGE_NAME}"
@@ -60,7 +60,7 @@ class Pipeline {
                 }
             }
             catch (err){
-                script.echo "${FAILED_STAGE}"
+                script.echo "${yml.notifications.email.recipients}"
                 script.emailext body: "${err}", subject: "Build failed at stage ${FAILED_STAGE}", to: 'temtest.user@gmail.com'
             }
         }
