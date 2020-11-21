@@ -36,7 +36,7 @@ class Pipeline {
              }
             script.stage('database'){
                 FAILED_STAGE = "${script.STAGE_NAME}"
-                script.sh "${mvnHome}/bin/${yml.database.databaseCommand} -f ${yml.database.databaseFolder}/pom.xml"  
+                script.sh "${mvnHome}/bin/${yml.database.databaseCommand} -f ${yml.database.databaseFolder}/xom.xml"  
             }
             script.stage('deploy'){
                 FAILED_STAGE = "${script.STAGE_NAME}"
