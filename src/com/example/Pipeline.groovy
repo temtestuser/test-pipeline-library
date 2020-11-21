@@ -31,7 +31,7 @@ class Pipeline {
             
             script.stage('build'){
                 //script.sh "cd ${yml.build.projectFolder}"
-                script.workspace = "${script.workspace}/yml.build.projectFolder"
+                script.workspace = "${script.workspace}/${yml.build.projectFolder}"
                 script.echo "${script.workspace}"
                 
                 
