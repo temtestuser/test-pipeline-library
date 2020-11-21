@@ -62,6 +62,7 @@ class Pipeline {
                 script.emailext body: "Successful", subject: "Build failed at stage ${FAILED_STAGE}", to: "${yml.notifications.email.recipients}" 
             }
             catch (err){
+                script.currentBuild.result = 'FAILURE'
                 script.emailext body: "${err}", subject: "Build failed at stage ${FAILED_STAGE}", to: "${yml.notifications.email.recipients}"
             }
         }
