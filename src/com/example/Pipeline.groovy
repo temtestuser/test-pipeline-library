@@ -30,11 +30,11 @@ class Pipeline {
             script.println(yml.build.projectFolder)
             
             script.stage('build'){
-                script.sh "cd ${script.workspace}/${yml.build.projectFolder}"
+                //script.sh "cd ${script.workspace}/${yml.build.projectFolder}"
                 //script.workspace = "${script.workspace}/${yml.build.projectFolder}"
                 //script.echo "${script.workspace}"
-                
-                script.sh "${mvnHome}/bin/${yml.build.buildCommand}"
+                script.sh "mvn -f project/pom.xml clean install"
+                //script.sh "${mvnHome}/bin/${yml.build.buildCommand}"
                 
             }
         }
