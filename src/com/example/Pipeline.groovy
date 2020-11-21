@@ -36,10 +36,10 @@ class Pipeline {
                 script.sh "${mvnHome}/bin/${yml.database.databaseCommand} -f ${yml.database.databaseFolder}/pom.xml"  
             }
             script.stage('deploy'){
-                script.sh "${mvnHome}/bin/${yml.deploy.deployCommand} -f ${yml.build.projectFolder1}/pom.xml" 
+                script.sh "${mvnHome}/bin/${yml.deploy.deployCommand} -f ${yml.build.projectFolder}/pom.xml" 
             }
             script.stage('test'){
-                //script.steps { 
+                
                     script.parallel ( 
                         "${yml.test[0].name}" : {
                            script.sh "${mvnHome}/bin/${yml.test[0].testCommand} -f ${yml.test[0].testFolder}/pom.xml"
@@ -52,9 +52,11 @@ class Pipeline {
                         }
                             
                     )
-                    
-                //}
-                
+                }
+            script.post {
+                failure {
+                    "Failed stage name: ${script.FAILED_STAGE}"
+                }
             }
         }
     }
