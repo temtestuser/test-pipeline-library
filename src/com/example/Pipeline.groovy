@@ -20,6 +20,7 @@ class Pipeline {
 
 //    ===================== End pipeline ==============================
         script.node(){
+            try{
             def mvnHome = script.tool name: 'maven_3', type: 'maven'
             script.stage('checkout'){
             script.git 'https://github.com/temtestuser/test-maven-project.git'
@@ -40,24 +41,23 @@ class Pipeline {
             }
             script.stage('test'){
                 
-                    //script.parallel ( 
-                        //"${yml.test[0].name}" : {
-                        //   script.sh "${mvnHome}/bin/${yml.test[0].testCommand} -f ${yml.test[0].testFolder}/pom.xml"
-                        //},
-                       // "${yml.test[1].name}" :{
-                        //    script.sh "${mvnHome}/bin/${yml.test[1].testCommand} -f ${yml.test[1].testFolder}/pom.xml"
-                       // },
-                       // "${yml.test[2].name}" :{
-                       //     script.sh "${mvnHome}/bin/${yml.test[2].testCommand} -f ${yml.test[2].testFolder}/pom.xml"
-                       // }
+                    script.parallel ( 
+                        "${yml.test[0].name}" : {
+                           script.sh "${mvnHome}/bin/${yml.test[0].testCommand} -f ${yml.test[0].testFolder}/pom.xml"
+                        },
+                        "${yml.test[1].name}" :{
+                            script.sh "${mvnHome}/bin/${yml.test[1].testCommand} -f ${yml.test[1].testFolder}/pom.xml"
+                        },
+                        "${yml.test[2].name}" :{
+                            script.sh "${mvnHome}/bin/${yml.test[2].testCommand} -f ${yml.test[2].testFolder}/pom.xml"
+                       }
                             
-                   // )
-                script.echo "${yml.test[1].testCommand}"
+                   )
+                
                 }
-            script.post {
-                failure {
-                    script.echo "Failed stage name: ${script.FAILED_STAGE}"
-                }
+            }
+            catch (err){
+                emailext body: "${err}", subject: 'Build failed', to: 'temtest.user@gmail.com'
             }
         }
     }
