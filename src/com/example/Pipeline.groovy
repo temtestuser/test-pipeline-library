@@ -26,10 +26,9 @@ class Pipeline {
             script.stage('checkout'){
             script.git 'https://github.com/temtestuser/test-maven-project.git'
            }
-            //def content = script.readFile("${configurationFile}")
-            //script.println(content)
+            
             yml = script.readYaml file: "${configurationFile}"
-            script.println(yml.build.projectFolder)
+            script.println(yml)
             
             script.stage('build'){
                 FAILED_STAGE = "${script.STAGE_NAME}"
