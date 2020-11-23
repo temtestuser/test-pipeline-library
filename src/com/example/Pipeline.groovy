@@ -28,7 +28,7 @@ class Pipeline {
            }
             
             yml = script.readYaml file: "${configurationFile}"
-            script.println(yml)
+            //script.println(yml)
             
             script.stage('build'){
                 FAILED_STAGE = "${script.STAGE_NAME}"
