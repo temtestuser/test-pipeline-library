@@ -11,15 +11,7 @@ class Pipeline {
     def execute() {
         def FAILED_STAGE
         def yml
-//    ===================== Your Code Starts Here =====================
-//    Note : use "script" to access objects from jenkins pipeline run (WorkflowScript passed from Jenkinsfile)
-//           for example: script.node(), script.stage() etc
 
-//    ===================== Parse configuration file ==================
-
-//    ===================== Run pipeline stages =======================
-
-//    ===================== End pipeline ==============================
         script.node(){
             try{  
             def mvnHome = script.tool name: 'maven_3', type: 'maven'
